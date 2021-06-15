@@ -11,6 +11,8 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
 
 // Use consistent styling
 import 'sanitize.css/sanitize.css';
@@ -27,14 +29,22 @@ import reportWebVitals from 'reportWebVitals';
 // Initialize languages
 import './locales/i18n';
 
-const store = configureAppStore();
+// Set-up global store with the browser history
+import history from 'utils/history';
+
+const store = configureAppStore(history);
+
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 
 ReactDOM.render(
   <Provider store={store}>
     <HelmetProvider>
       <React.StrictMode>
-        <App />
+        <BrowserRouter>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </BrowserRouter>
       </React.StrictMode>
     </HelmetProvider>
   </Provider>,

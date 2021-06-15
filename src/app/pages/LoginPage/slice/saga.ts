@@ -1,4 +1,4 @@
-import { call, put, select, takeLatest, delay } from 'redux-saga/effects';
+import { put, select, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import { selectUserId, selectPassword } from './selectors';
 import { loginPageActions as actions } from '.';

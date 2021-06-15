@@ -4,7 +4,6 @@ import {
   Container,
   CssBaseline,
   TextField,
-  Typography,
   Link,
   Grid,
 } from '@material-ui/core';
@@ -12,7 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUserId, selectPassword } from './slice/selectors';
 import tataAIGLogo from '../../images/tata-aig-logo.png';
-import './style.css';
 import { useLoginPageSlice } from './slice';
 
 const useStyles = makeStyles(theme => ({
@@ -72,7 +70,11 @@ export function LoginPage() {
       <CssBaseline />
       <div className={classes.paper}>
         <div className="text-center">
-          <img className="tata-aig-logo" src={tataAIGLogo} />
+          <img
+            style={{ maxWidth: '140px' }}
+            src={tataAIGLogo}
+            alt="Tata AIG logo"
+          />
         </div>
         <h1 className="text-center mt-5">Web Portal</h1>
         <form

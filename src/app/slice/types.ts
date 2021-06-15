@@ -1,4 +1,3 @@
-
 /* --- STATE --- */
 export interface AppState {
   token: string;

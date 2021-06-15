@@ -12,10 +12,10 @@ describe('reducer', () => {
     expect(state.test).toBe('dummyResult');
   });
 
-  it('should return identity reducers when empty', () => {
+  it('should return router reducer when empty', () => {
     const reducer = createReducer() as Reducer<any, any>;
     const state = { a: 1 };
     const newState = reducer(state, '');
-    expect(newState).toBe(state);
+    expect(newState.router).toBeDefined();
   });
 });

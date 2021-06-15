@@ -6,10 +6,10 @@
  * contain code that should be seen on all pages. (e.g. navigation bar)
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { GlobalStyle } from 'styles/global-styles';
 
 import { MainPage } from './pages/MainPage/Loadable';
@@ -45,7 +45,7 @@ export function App() {
   const isLoading = useSelector(selectLoadingStatus);
 
   return (
-    <BrowserRouter>
+    <>
       <Helmet
         titleTemplate="%s - Tata AIG"
         defaultTitle="Tata AIG"
@@ -62,6 +62,6 @@ export function App() {
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </BrowserRouter>
+    </>
   );
 }
